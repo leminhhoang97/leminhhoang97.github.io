@@ -40,17 +40,31 @@
         .link-style:hover {
             color: #443c31;
         }
+        .language-switcher button {
+            transition: color 0.2s;
+        }
+        .language-switcher button.active {
+            font-weight: bold;
+            color: #333;
+        }
     </style>
 </head>
 <body class="antialiased">
+
+    <!-- Language Switcher -->
+    <div class="language-switcher fixed top-4 right-4 z-50 flex gap-2">
+        <button id="lang-en" class="text-sm font-medium link-style active">EN</button>
+        <span class="text-sm text-gray-400">|</span>
+        <button id="lang-de" class="text-sm font-medium link-style">DE</button>
+    </div>
 
     <!-- Header & Navigation -->
     <header class="py-12 text-center md:py-16">
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-800 mb-6">Lê Minh Hoàng</h1>
         <nav>
-            <a href="#home" class="link-style text-lg font-medium mx-4 hover:underline">Home</a>
-            <a href="#research" class="link-style text-lg font-medium mx-4 hover:underline">Research</a>
-            <a href="#cv" class="link-style text-lg font-medium mx-4 hover:underline">C.V.</a>
+            <a href="#home" class="link-style text-lg font-medium mx-4 hover:underline" data-translate="navHome">Home</a>
+            <a href="#research" class="link-style text-lg font-medium mx-4 hover:underline" data-translate="navResearch">Research</a>
+            <a href="#cv" class="link-style text-lg font-medium mx-4 hover:underline" data-translate="navCV">C.V.</a>
         </nav>
     </header>
 
@@ -65,25 +79,68 @@
             <!-- Text Content -->
             <div class="text-content max-w-xl text-left">
                 <section id="home">
-                    <p</p>
+                    <p data-translate="aboutMe"></p>
                 </section>
                 <section id="research">
-                    <p></p>
+                    <p data-translate="researchInterests"></p>
                 </section>
                 <section id="cv">
-                    <p>. Here is my <a href="#" class="link-style hover:underline">CV</a>.</p>
+                    <p data-translate="education"></p>
                 </section>
                 <section id="contact">
-                    <p>You can contact me at <a href="mailto:hoangleminh997@gmail.com" class="link-style hover:underline">hoangleminh997@gmail.com</a></p>
+                    <p data-translate="contactMe">You can contact me at <a href="mailto:hoangleminh997@gmail.com" class="link-style hover:underline">hoangleminh997@gmail.com</a></p>
                 </section>
             </div>
         </div>
     </main>
 
-    <!-- JavaScript for Lucide Icons & smooth scroll -->
+    <!-- JavaScript for language switcher & smooth scroll -->
     <script>
-        // Renders Lucide icons
-        lucide.createIcons();
+        const translations = {
+            'en': {
+                navHome: 'Home',
+                navResearch: 'Research',
+                navCV: 'C.V.',
+                aboutMe: 'I am a Postdoctoral Fellow at KU Leuven and an Associate Member of the Toulouse School of Economics. In September 2025, I will join the Department of Economics at KU Leuven as an Assistant Professor.',
+                researchInterests: 'My research interests lie in industrial organization, health care and innovation.',
+                education: 'I received my PhD from the Toulouse School of Economics in July 2025. Here is my <a href="#" class="link-style hover:underline">CV</a>.',
+                contactMe: 'You can contact me at <a href="mailto:hoangleminh997@gmail.com" class="link-style hover:underline">hoangleminh997@gmail.com</a>'
+            },
+            'de': {
+                navHome: 'Startseite',
+                navResearch: 'Forschung',
+                navCV: 'Lebenslauf',
+                aboutMe: 'Ich bin Postdoktorand an der KU Leuven und assoziiertes Mitglied der Toulouse School of Economics. Im September 2025 werde ich als Assistenzprofessor am Department of Economics der KU Leuven tätig sein.',
+                researchInterests: 'Meine Forschungsinteressen liegen in der Industrieökonomie, im Gesundheitswesen und in der Innovation.',
+                education: 'Ich habe im Juli 2025 an der Toulouse School of Economics promoviert. Hier ist mein <a href="#" class="link-style hover:underline">Lebenslauf</a>.',
+                contactMe: 'Sie können mich unter <a href="mailto:hoangleminh997@gmail.com" class="link-style hover:underline">hoangleminh997@gmail.com</a> kontaktieren.'
+            }
+        };
+
+        function updateContent(lang) {
+            // Update all elements with a data-translate attribute
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Update active state of language buttons
+            document.querySelectorAll('.language-switcher button').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.getElementById(`lang-${lang}`).classList.add('active');
+        }
+
+        // Add event listeners to the language buttons
+        document.getElementById('lang-en').addEventListener('click', () => updateContent('en'));
+        document.getElementById('lang-de').addEventListener('click', () => updateContent('de'));
+
+        // Set initial language
+        document.addEventListener('DOMContentLoaded', () => {
+            updateContent('en');
+        });
 
         // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -94,6 +151,9 @@
                 });
             });
         });
+
+        // Renders Lucide icons
+        lucide.createIcons();
     </script>
 </body>
 </html>
