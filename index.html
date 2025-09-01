@@ -3,34 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - CV & Job Hunting</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Léa Bignon - CV</title>
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        .main-container {
+            max-width: 1000px;
+        }
+        .profile-picture {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .text-content p {
+            margin: 20px 0;
+            font-size: 1.1em;
+            color: #444;
+        }
+        /* Style for the link color to match the screenshot's navigation */
+        .link-style {
+            color: #6a5e4d;
+        }
+        .link-style:hover {
+            color: #443c31;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <h1>Your Name</h1>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="py-12 text-center md:py-16">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-800 mb-6">Lê Minh Hoàng</h1>
         <nav>
-            <a href="#home">Home</a> | <a href="#about">About</a> | <a href="#contact">Contact</a>
+            <a href="#home" class="link-style text-lg font-medium mx-4 hover:underline">Home</a>
+            <a href="#research" class="link-style text-lg font-medium mx-4 hover:underline">Research</a>
+            <a href="#cv" class="link-style text-lg font-medium mx-4 hover:underline">C.V.</a>
         </nav>
     </header>
 
-    <main>
-        <div class="content">
+    <!-- Main Content -->
+    <main class="container main-container mx-auto px-6 py-12">
+        <div class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16">
+            <!-- Profile Photo -->
             <div class="photo">
-                <img src="Photo_LMH.jpg" alt="Lê Minh Hoàng">
+                <img src="https://placehold.co/300x300/e0e0e0/555555?text=PHOTO" alt="Léa Bignon" class="profile-picture">
             </div>
-            <div class="text">
+            
+            <!-- Text Content -->
+            <div class="text-content max-w-xl text-left">
                 <section id="home">
-                    <p>I am a [your profession] with experience in [key skills]. I am currently [current role or status, e.g., job hunting, studying].</p>
+                    <p</p>
                 </section>
-                <section id="about">
-                    <p>My interests lie in [your interests, e.g., data analysis, programming]. I received my [degree] from [institution] in [year].</p>
+                <section id="research">
+                    <p></p>
+                </section>
+                <section id="cv">
+                    <p>I received my PhD from the Toulouse School of Economics in July 2025. Here is my <a href="#" class="link-style hover:underline">CV</a>.</p>
                 </section>
                 <section id="contact">
-                    <p>Email: your.email@example.com | LinkedIn: [link] | GitHub: [link]</p>
+                    <p>You can contact me at <a href="mailto:hoangleminh997@gmail.com" class="link-style hover:underline">hoangleminh997@gmail.com</a></p>
                 </section>
             </div>
         </div>
     </main>
+
+    <!-- JavaScript for Lucide Icons & smooth scroll -->
+    <script>
+        // Renders Lucide icons
+        lucide.createIcons();
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
