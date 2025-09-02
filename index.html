@@ -47,6 +47,12 @@
             font-weight: bold;
             color: #333;
         }
+        .project-card {
+            border: 1px solid #e5e5e5;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -70,7 +76,7 @@
 
     <!-- Main Content -->
     <main class="container main-container mx-auto px-6 py-12">
-        <div class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16">
+        <div class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 mb-16">
             <!-- Profile Photo -->
             <div class="photo">
                 <img src="Photo_LMH.jpg" alt="Lê Minh Hoàng" class="profile-picture">
@@ -81,9 +87,6 @@
                 <section id="home">
                     <p data-translate="aboutMe"></p>
                 </section>
-                <section id="research">
-                    <p data-translate="researchInterests"></p>
-                </section>
                 <section id="cv">
                     <p data-translate="education"></p>
                 </section>
@@ -92,6 +95,64 @@
                 </section>
             </div>
         </div>
+        
+        <!-- This empty div creates the "page break" effect -->
+        <div class="h-[80vh]"></div>
+
+        <!-- Research Projects Section -->
+        <section id="research" class="mt-16">
+            <h2 class="text-3xl font-light text-gray-800 mb-8" data-translate="researchInterests"></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white">
+                    <h3 class="text-xl font-semibold mb-2">Project 1 Title</h3>
+                    <p class="mb-4 text-sm text-gray-600">Brief description of the project. Explain the problem, your methodology, and the key findings or results.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/leminhhoang/project-1-repo" target="_blank" class="link-style hover:underline font-bold text-sm flex items-center">
+                            <span class="mr-1" data-lucide="github"></span>
+                            GitHub
+                        </a>
+                        <a href="path/to/project-1.pdf" target="_blank" class="link-style hover:underline font-bold text-sm flex items-center">
+                            <span class="mr-1" data-lucide="file-text"></span>
+                            PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card bg-white">
+                    <h3 class="text-xl font-semibold mb-2">Project 2 Title</h3>
+                    <p class="mb-4 text-sm text-gray-600">A summary of the second research project. Highlight the tools and technologies used, as well as any unique challenges you overcame.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/leminhhoang/project-2-repo" target="_blank" class="link-style hover:underline font-bold text-sm flex items-center">
+                            <span class="mr-1" data-lucide="github"></span>
+                            GitHub
+                        </a>
+                        <a href="path/to/project-2.pdf" target="_blank" class="link-style hover:underline font-bold text-sm flex items-center">
+                            <span class="mr-1" data-lucide="file-text"></span>
+                            PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card bg-white">
+                    <h3 class="text-xl font-semibold mb-2">Project 3 Title</h3>
+                    <p class="mb-4 text-sm text-gray-600">Description of the third project, focusing on its impact and your specific contributions to the work. Make sure to describe the data you worked with and the key insights you gained.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/leminhhoang/project-3-repo" target="_blank" class="link-style hover:underline font-bold text-sm flex items-center">
+                            <span class="mr-1" data-lucide="github"></span>
+                            GitHub
+                        </a>
+                        <a href="path/to/project-3.pdf" target="_blank" class="link-style hover:underline font-bold text-sm flex items-center">
+                            <span class="mr-1" data-lucide="file-text"></span>
+                            PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- JavaScript for language switcher & smooth scroll -->
@@ -102,7 +163,7 @@
                 navResearch: 'Research',
                 navCV: 'C.V.',
                 aboutMe: 'I am current a student in the master program Applied Economcis & Data Science at the Carl von Ossietzky Oldenburg, Germany',
-                researchInterests: 'My research interests lie in energy and resource economics, as well as international trade.',
+                researchInterests: 'Research Projects',
                 education: 'Here is my <a href="CV_Le_Minh_Hoang_institut_stat_analysis-1.pdf" target="_blank" class="link-style hover:underline font-bold">CV</a>.',
                 contactMe: 'You can contact me at <a href="mailto:hoangleminh997@gmail.com" class="link-style hover:underline font-bold">hoangleminh997@gmail.com</a>.'
             },
@@ -111,7 +172,7 @@
                 navResearch: 'Forschung',
                 navCV: 'Lebenslauf',
                 aboutMe: 'Ich bin derzeit Student im Masterstudiengang Applied Economcis & Data Science an der Carl von Ossietzky Universität Oldenburg, Deutschland.',
-                researchInterests: 'Meine Forschungsinteressen liegen in den Bereichen Energie- und Ressourcenökonomie sowie internationaler Handel.',
+                researchInterests: 'Forschungsprojekte',
                 education: 'Hier ist mein <a href="CV_Le_Minh_Hoang_institut_stat_analysis-1.pdf" target="_blank" class="link-style hover:underline font-bold">Lebenslauf</a>.',
                 contactMe: 'Sie können mich unter <a href="mailto:hoangleminh997@gmail.com" class="link-style hover:underline font-bold">hoangleminh997@gmail.com</a> kontaktieren.'
             }
