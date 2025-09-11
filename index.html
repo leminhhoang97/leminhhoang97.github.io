@@ -71,7 +71,7 @@
             <a href="#home" class="link-style text-lg font-medium mx-4 hover:underline" data-translate="navHome">Home</a>
             <a href="#research" class="link-style text-lg font-medium mx-4 hover:underline" data-translate="navResearch">Research</a>
             <a href="CV_Le_Minh_Hoang_institut_stat_analysis-1.pdf" target="_blank" class="link-style text-lg mx-4 hover:underline" data-translate="navCV">C.V.</a>
-            <a href="Empfehlungsschreiben/Empfehlungsschreiben_LMH_DE_akademisch.pdf" target="_blank" class="link-style text-lg mx-4 hover:underline" data-translate="navMovLetter">Motivation letter</a>
+            <a id="nav-mov-letter" target="_blank" class="link-style text-lg mx-4 hover:underline" data-translate="navMovLetter">Motivation letter</a>
         </nav>
     </header>
 
@@ -190,6 +190,7 @@
                 navResearch: 'Research',
                 navCV: 'C.V.',
                 navMovLetter: 'Recommendation letter',
+                navMovLetterHref: 'Empfehlungsschreiben/Empfehlungsschreiben_LMH_ENG_akademisch.pdf',
                 aboutMe: 'I am current a student in the last semester of the master program Applied Economics & Data Science at the Carl von Ossietzky Oldenburg, Germany',
                 researchProjects: 'Research projects',
                 researchInterests: 'My interests lie in energy and resource economics, as well as international trade.',
@@ -207,6 +208,7 @@
                 navResearch: 'Forschung',
                 navCV: 'Lebenslauf',
                 navMovLetter:'Empfehlungsschreiben',
+                navMovLetterHref: 'Empfehlungsschreiben/Empfehlungsschreiben_LMH_DE_akademisch.pdf',
                 aboutMe: 'Ich bin derzeit Student in dem letzten Semester im Masterstudiengang Applied Economics & Data Science an der Carl von Ossietzky Universität Oldenburg, Deutschland.',
                 researchProjects: 'Forschungsprojekte',
                 researchInterests: 'Meine Interessen liegen in den Bereichen Energie- und Ressourcenökonomie sowie internationaler Handel.',
@@ -229,6 +231,12 @@
                     el.innerHTML = translations[lang][key];
                 }
             });
+            
+            // Update the recommendation letter link based on the selected language
+            const movLetterLink = document.getElementById('nav-mov-letter');
+            if (movLetterLink && translations[lang].navMovLetterHref) {
+                movLetterLink.href = translations[lang].navMovLetterHref;
+            }
 
             // Update active state of language buttons
             document.querySelectorAll('.language-switcher button').forEach(button => {
