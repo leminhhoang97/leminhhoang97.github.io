@@ -70,7 +70,7 @@
         <nav>
             <a href="#home" class="link-style text-lg font-medium mx-4 hover:underline" data-translate="navHome">Home</a>
             <a href="#research" class="link-style text-lg font-medium mx-4 hover:underline" data-translate="navResearch">Research</a>
-            <a href="CV_Le_Minh_Hoang_institut_stat_analysis-1.pdf" target="_blank" class="link-style text-lg mx-4 hover:underline" data-translate="navCV">C.V.</a>
+            <a id="nav-CV" target="_blank" class="link-style text-lg mx-4 hover:underline" data-translate="navCV">C.V.</a>
             <a id="nav-mov-letter" target="_blank" class="link-style text-lg mx-4 hover:underline" data-translate="navMovLetter">Motivation letter</a>
         </nav>
     </header>
@@ -189,6 +189,7 @@
                 navHome: 'Home',
                 navResearch: 'Research',
                 navCV: 'C.V.',
+                navCVHref: 'CV - Le Minh Hoang (ENG).pdf', // English CV
                 navMovLetter: 'Recommendation letter',
                 navMovLetterHref: 'Empfehlungsschreiben/Empfehlungsschreiben_LMH_ENG_firmen.pdf',
                 aboutMe: 'I am current a student in the last semester of the master program Applied Economics & Data Science at the Carl von Ossietzky Oldenburg, Germany',
@@ -207,6 +208,7 @@
                 navHome: 'Startseite',
                 navResearch: 'Forschung',
                 navCV: 'Lebenslauf',
+                navCVHref: 'CV_Le_Minh_Hoang_institut_stat_analysis-1.pdf', // German CV
                 navMovLetter:'Empfehlungsschreiben',
                 navMovLetterHref: 'Empfehlungsschreiben/Empfehlungsschreiben_LMH_DE_firmen.pdf',
                 aboutMe: 'Ich bin derzeit Student in dem letzten Semester im Masterstudiengang Applied Economics & Data Science an der Carl von Ossietzky Universität Oldenburg, Deutschland.',
@@ -231,6 +233,12 @@
                     el.innerHTML = translations[lang][key];
                 }
             });
+            
+            // Update the CV link based on the selected language
+            const cvLink = document.getElementById('nav-CV');
+            if (cvLink && translations[lang].navCVHref) {
+                cvLink.href = translations[lang].navCVHref;
+            }
             
             // Update the recommendation letter link based on the selected language
             const movLetterLink = document.getElementById('nav-mov-letter');
